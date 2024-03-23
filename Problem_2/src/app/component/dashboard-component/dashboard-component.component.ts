@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard-component',
+  selector: 'dashboard-component',
   standalone: true,
   imports: [CommonModule,FormsModule,RouterLink,RouterLinkActive],
   templateUrl: './dashboard-component.component.html',
@@ -32,22 +32,10 @@ export class DashboardComponentComponent implements OnInit {
 
   toggleSortByPrice(): void {
     this.sortByPriceAsc = !this.sortByPriceAsc;
-    this.sortproductsByPrice();
+
   }
 
-  sortproductsByPrice(): void {
-    this.filteredproducts.sort((a, b) => {
-      if (this.sortByPriceAsc) {
-        return a.price - b.price;
-      } else {
-        return b.price - a.price;
-      }
-    });
-  }
 
-  applyFilter(): void {
-    this.filteredproducts = this.products.filter(product =>
-      product.productName.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-  }
+
+
 }
